@@ -5,7 +5,6 @@ import (
 	"flag"
 	"fmt"
 	"os"
-	"reflect"
 	"uniq"
 )
 
@@ -53,21 +52,10 @@ func ParseWriter(result []string, writer *bufio.Writer) {
 }
 
 func main() {
-	strs := []string{
-		"111\n",
-		"222\n",
-		"111\n",
-	}
 	var opts uniq.Options
 	opts = uniq.ParseFlags(opts)
-	lines, _ := CheckInput()
+	lines, writer := CheckInput()
 	result := uniq.CollapseLines(lines, opts)
-	// for _, value := range result {
-	// 	fmt.Print(value)
-	// }
-	// fmt.Println(result)
-	// fmt.Println(strs)
-	fmt.Println(reflect.DeepEqual(strs, result))
-	// 	ParseWriter(result, writer)
-	// 	writer.Flush()
+	ParseWriter(result, writer)
+	writer.Flush()
 }
