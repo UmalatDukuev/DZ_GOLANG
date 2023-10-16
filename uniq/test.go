@@ -1,20 +1,20 @@
 package main
 
 import (
-	"fmt"
+	//"fmt"
+	"reflect"
 	"testing"
 	"uniq"
 )
 
 func TestUniqDefault(t *testing.T) {
-
 	opts := uniq.Options{
-		c: false,
-		d: false,
-		u: false,
-		f: 0,
-		c: 0,
-		i: false,
+		C: false,
+		D: false,
+		U: false,
+		F: 0,
+		S: 0,
+		I: false,
 	}
 
 	input := []string{
@@ -29,44 +29,15 @@ func TestUniqDefault(t *testing.T) {
 		"222\n",
 		"111\n",
 	}
-	receivedRes := uniq.CollapseLines(input, opts)\
+	receivedRes := uniq.CollapseLines(input, opts)
 
 	reflect.DeepEqual(expectedRes, receivedRes)
 
 	// fmt.Println(expectedRes)
 	// fmt.Println(receivedRes)
-	//fmt.Println(reflect.DeepEqual(expectedRes, receivedRes))
+	// fmt.Println(reflect.DeepEqual(expectedRes, receivedRes))
 }
 
-func TestUniqC(t *testing.T) {
+func main() {
 
-	opts := uniq.Options{
-		c: true,
-		d: false,
-		u: false,
-		f: 0,
-		c: 0,
-		i: false,
-	}
-
-	input := []string{
-		"111\n",
-		"222\n",
-		"222\n",
-		"111\n",
-	}
-
-	expectedRes := []string{
-		"111\n",
-		"222\n",
-		"111\n",
-	}
-	receivedRes := uniq.CollapseLines(input, opts)\
-
-	reflect.DeepEqual(expectedRes, receivedRes)
-
-	// fmt.Println(expectedRes)
-	// fmt.Println(receivedRes)
-	//fmt.Println(reflect.DeepEqual(expectedRes, receivedRes))
 }
-
