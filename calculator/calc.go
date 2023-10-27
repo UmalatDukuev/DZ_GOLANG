@@ -9,6 +9,8 @@ import (
 func calculate(expression string) {
 	elements := strings.Split(expression, "")
 	fmt.Println(elements[0])
+	priority := map[string]int{"+": 1, "-": 1, "*": 2, "/": 2}
+	1
 	return
 }
 
