@@ -24,9 +24,7 @@ func calculate(expression string) {
 	for _, token := range tokens {
 		//fmt.Println(token)
 	}
-	ааааааааааааааааааааааааа
 
-	ааааааааааааааааааааааааа
 	return
 }
 
