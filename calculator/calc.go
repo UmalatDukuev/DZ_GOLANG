@@ -3,13 +3,28 @@ package main
 import (
 	"fmt"
 	"os"
-	"strings"
+	"regexp"
 )
 
+type numbersStack struct {
+	items []int
+}
+
+type operationStack struct {
+	items []int
+}
+
+func tokenize(expression string) []string {
+	re := regexp.MustCompile(`\d+|\S`) // Регулярное выражение для чисел или одного символа
+	return re.FindAllString(expression, -1)
+}
+
 func calculate(expression string) {
-	elements := strings.Split(expression, "")
-	fmt.Println(elements[0])
-	priority := map[string]int{"+": 1, "-": 1, "*": 2, "/": 2}
+	tokens := tokenize(expression)
+	for _, token := range tokens {
+		//fmt.Println(token)
+	}
+
 	return
 }
 
