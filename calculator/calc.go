@@ -26,7 +26,7 @@ func isNumber(token string) bool {
 }
 func isOperator(token string) bool {
 	isOperator := false
-	if token == "+" || token == "*" || token == "*" || token == "/" || token == "(" || token == ")" {
+	if token == "+" || token == "-" || token == "*" || token == "/" || token == "(" || token == ")" {
 		isOperator = true
 	}
 	return isOperator
@@ -38,12 +38,26 @@ func calculate(expression string) {
 
 	tokens := tokenize(expression)
 	for _, token := range tokens {
+
 		if isNumber(token) == true {
 			numberStack.Push(token)
 		}
+
 		if isOperator(token) == true {
 			operatorStack.Push(token)
 		}
+
+	}
+
+	for _, item := range numberStack.items {
+
+	}
+
+	for i := 0; i < len(numberStack.items); i++ {
+		fmt.Println(numberStack.items[i])
+	}
+	for i := 0; i < len(operatorStack.items); i++ {
+		fmt.Println(operatorStack.items[i])
 	}
 	return
 }
